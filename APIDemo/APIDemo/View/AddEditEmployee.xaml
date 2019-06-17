@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="APIDemo.View.AddEditEmployee"
+                       xmlns:behaviour="clr-namespace:APIDemo.Behaviour"
+             xmlns:effects="clr-namespace:APIDemo.Effects">
+    
+    
+    
+    
+    <ContentPage.Content>
+        
+        <StackLayout Padding="30" >
+          <StackLayout Orientation="Horizontal">
+                <Label Text="Employee Name"/>
+            
+                <Entry Placeholder="Name" 
+                   Text="{Binding SelectedEmployees.Name,Mode=OneWay}" >
+                    <Entry.Effects>
+                        <effects:FocusEffect></effects:FocusEffect>
+                    </Entry.Effects>
+                    <Entry.Behaviors>
+                        <behaviour:ItemTextChangedToCommandBehaviour/>
+                    </Entry.Behaviors>
+                </Entry>
+                
+                
+                
+                
+               
+                </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+            <Label Text="Employee Department"/>
+                <Entry Placeholder="Department" Text="{Binding SelectedEmployees.Department}"/>
+                </StackLayout>
+            <Button Text="Save/Add" Command="{Binding AddEmp}"></Button> 
+           
+                <Button Text="Upgate" Command="{Binding UpdateEmp}"></Button> 
+            <Label Text="{Binding Message}"/>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

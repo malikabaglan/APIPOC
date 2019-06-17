@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIDemo.View.EmployeesView"
+             xmlns:vm="clr-namespace:APIDemo.ViewModel"
+                xmlns:behaviour="clr-namespace:APIDemo.Behaviour"
+             >
+    
+    <!--<ContentPage.BindingContext>
+       <vm:EmployeesViewModel/>
+    </ContentPage.BindingContext>-->
+    
+    
+    <ContentPage.Content>
+<StackLayout>
+        
+            <Grid>
+               
+           <Grid.RowDefinitions> 
+                    <RowDefinition Height="300"/>
+                     <RowDefinition Height="100"/>
+                     <RowDefinition Height="100"/>
+                     <RowDefinition Height="100"/>
+                     <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"/>
+            
+        <ListView ItemsSource="{Binding EmployeeList}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  BackgroundColor="Aqua" >
+                                <Label Text="{Binding Name}" 
+                                       TextColor="Red" 
+                                       FontSize="Medium">
+                                        
+                                    </Label>
+                                <Label Text="{Binding Department}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                    <ListView.Behaviors>
+                        <behaviour:ItemSelectedToCommandBehaviour></behaviour:ItemSelectedToCommandBehaviour>
+                      </ListView.Behaviors>
+            </ListView>
+                
+             <Button Grid.Row="2" Text="Add" Command="{Binding NavigateTo}"/>  
+                    <Button Grid.Row="3" Text="Refresh" Command="{Binding ResrefhCommand}"/>  
+                
+                </Grid>
+                
+                
+    </StackLayout>
+                
+        </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:APIDemo.Model"
+             x:Class="APIDemo.View.DependencyInjectionPage">
+    <ContentPage.Content>
+        
+     
+        <Label Text="{local:Translate name }" />
+    </ContentPage.Content>
+</ContentPage>
